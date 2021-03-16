@@ -8,20 +8,24 @@ Clone o repositório:
 
 # Building and running the application
 ## Pre-requisites
-<pre><code>
+<pre>
+<code>
 JAVA 15
 Maven
-</code></pre>
+</code>
+</pre>
 
 # Documentation
-<pre><code>
+<pre>
+<code>
 http://localhost:8080/api-docs
 http://localhost:8080/swagger-ui.html
-</code></pre>
+</code>
+</pre>
 
 # Application
-<pre><code>API REST que retorna a cotação de ações da [B3(Bolsa de valores)](http://www.b3.com.br/pt_br/). 
-As informações são buscadas da api [mfinance.com.bs](https://mfinance.com.br)
+<pre><code>API REST que retorna a cotação de ações da [B3(Bolsa de valores](http://www.b3.com.br/pt_br/)). 
+As informações são buscadas da api [mfinance.com.br](https://mfinance.com.br).
 Após a primeira requisição, os dados são mantidos em cache por 5 minutos(cache local com ehcache).
 
 A Api também prove endpoints para para criação de wallets e ordens de compra e venda, que
