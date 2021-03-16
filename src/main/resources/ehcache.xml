@@ -7,7 +7,7 @@
 
     <cache alias="quoteCache">
         <expiry>
-            <ttl unit="minutes">1</ttl>
+            <ttl unit="minutes">5</ttl>
         </expiry>
 
         <listeners>
@@ -33,7 +33,7 @@
         <key-type>java.lang.String</key-type>
         <value-type>com.demo.wallet.quote.api.Quote</value-type>
         <expiry>
-            <ttl unit="minutes">1</ttl>
+            <ttl unit="minutes">5</ttl>
         </expiry>
 
         <resources>
