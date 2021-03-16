@@ -24,9 +24,9 @@ http://localhost:8080/swagger-ui.html
 </pre>
 
 # Application
-<pre><code>API REST que retorna a cotação de ações da [B3(Bolsa de valores](http://www.b3.com.br/pt_br/)). 
+<pre><code>API REST que retorna a cotação de ações da [B3(Bolsa de valores](http://www.b3.com.br/pt_br/)) . 
 As informações são buscadas da api [mfinance.com.br](https://mfinance.com.br).
-Após a primeira requisição, os dados são mantidos em cache por 5 minutos(cache local com ehcache).
+Após a primeira requisição, os dados são mantidos em cache por 5 minutos(cache local com ehcache) .
 
 A Api também prove endpoints para para criação de wallets e ordens de compra e venda, que
 atualizam automaticamente a lista de ativos nas wallets informadas nas ordens
