@@ -20,8 +20,8 @@ http://localhost:8080/swagger-ui.html</code></pre>
 As informações são buscadas da api https://mfinance.com.br
 Após a primeira requisição, os dados são mantidos em cache por 5 minutos(cache local com ehcache).
 
-A Api também prove endpoints para para criação de wallets e ordens de compra e venda, que
-atualizam automaticamente a lista de ativos nas wallets informadas nas ordens
-com a quantidade, ticker, preço médio, etc...
+A Api também prove endpoints para criação de wallets e ordens de compra e venda, que atualizam 
+automaticamente a lista de ativos nas wallets informadas nas ordens com a quantidade, 
+ticker, preço médio, etc...
 Api desenvolvida para fins de demonstração, bem como os dados listados.
 </code></pre>
