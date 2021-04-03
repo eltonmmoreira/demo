@@ -4,12 +4,18 @@ language: java
 
 jdk: openjdk15
 
+cache:
+  directories:
+  - $HOME/.m2
+
 services: 
   - docker
 
-before_install:
-   - mvn clean install
-   - docker build -t eltonmmoreira/wallet -f Dockerfile .
+install: 
+  - mvn clean install
+  
+after_install: 
+  - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
 script:
    - docker run -p 8080:8080 eltonmmoreira/wallet 
