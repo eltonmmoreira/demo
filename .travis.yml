@@ -9,10 +9,6 @@ sudo: required
 #   - $HOME/.m2
 
 # install: true
-
-env:
-  global:
-    - CODECOV_TOKEN=:uuid-repo-token
     
 services: 
   - docker
