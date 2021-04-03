@@ -10,6 +10,10 @@ sudo: required
 
 # install: true
 
+env:
+  global:
+    - CODECOV_TOKEN=:uuid-repo-token
+    
 services: 
   - docker
   
@@ -20,11 +24,14 @@ script:
 #    - docker run -p 8080:8080 eltonmmoreira/wallet 
   - docker build -t demo-wallet -f Dockerfile .
   
+after_success:
+  - bash <(curl -s https://codecov.io/bash)  
+  
 before_deploy:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker tag demo-wallet $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER
   - docker tag demo-wallet $DOCKER_USER/demo-wallet:latest
-   
+  
 deploy:
   provider: script
   script: docker push $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER && docker push $DOCKER_USER/demo-wallet:latest
