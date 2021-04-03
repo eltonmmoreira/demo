@@ -14,7 +14,7 @@ services:
 install: 
   - mvn clean install
   
-after_install: 
+before_script: 
   - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
 script:
