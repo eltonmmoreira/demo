@@ -17,5 +17,5 @@ services:
 #   - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
 script:
-   - docker run -p 8080:8080 eltonmmoreira/wallet 
-#    - docker build -t eltonmmoreira/wallet -f Dockerfile .
+#    - docker run -p 8080:8080 eltonmmoreira/wallet 
+  - docker build -t eltonmmoreira/wallet -f Dockerfile .
