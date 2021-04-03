@@ -8,14 +8,14 @@ cache:
   directories:
   - $HOME/.m2
 
-services: 
-  - docker
+# services: 
+#   - docker
 
 install: 
   - mvn clean install
   
-before_script: 
-  - docker build -t eltonmmoreira/wallet -f Dockerfile .
+# before_script: 
+#   - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
-script:
-   - docker run -p 8080:8080 eltonmmoreira/wallet 
+# script:
+#    - docker run -p 8080:8080 eltonmmoreira/wallet 
