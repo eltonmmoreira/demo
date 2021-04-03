@@ -13,16 +13,16 @@ sudo: required
 services: 
   - docker
   
-# before_script: 
+# before_script:
 #   - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
 script:
-#    - docker run -p 8080:8080 eltonmmoreira/wallet 
+#    - docker run -p 8080:8080 eltonmmoreira/wallet
   - docker build -t demo-wallet -f Dockerfile .
-  
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)  
-  
+  - bash <(curl -s https://codecov.io/bash) -f build/reports/jacoco/codeCoverageReport/codeCoverageReport.xml
+
 before_deploy:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker tag demo-wallet $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER

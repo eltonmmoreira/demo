@@ -19,7 +19,7 @@ RUN mvn clean package
 FROM openjdk:15-jdk-alpine
 EXPOSE 8080
 # copy only the artifacts we need from the first stage and discard the rest
-COPY --from=MAVEN_BUILD /build/target/wallet-0.0.1-SNAPSHOT.jar /app.jar
+COPY --from=MAVEN_BUILD /build/target/demo-wallet-0.0.1-SNAPSHOT.jar /app.jar
 
 # set the startup command to execute the jar
 CMD ["java", "-jar", "/app.jar"]
