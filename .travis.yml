@@ -1,9 +1,10 @@
 sudo: required
+
 services: 
   - docker
 
- before_install:
+before_install:
    - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
- script:
+script:
    - docker run -p 8080:8080 eltonmmoreira/wallet 
