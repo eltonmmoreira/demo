@@ -18,4 +18,11 @@ services:
 
 script:
 #    - docker run -p 8080:8080 eltonmmoreira/wallet 
-  - docker build -t eltonmmoreira/wallet -f Dockerfile .
+  - docker build -t wallet -f Dockerfile .
+
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - docker tag wallet $DOCKER_USER/wallet:$TRAVIS_BUILD_NUMBER
+  - docker push $DOCKER_USER/wallet:$TRAVIS_BUILD_NUMBER
+  - docker tag wallet $DOCKER_USER/wallet:latest
+  - docker push $DOCKER_USER/wallet:latest
