@@ -1,35 +1,31 @@
 sudo: required
 
-# language: java
+language: java
 
-# jdk: openjdk15
+jdk: openjdk15
 
-# cache:
-#   directories:
-#   - $HOME/.m2
+cache:
+  directories:
+  - $HOME/.m2
 
-# install: true
-    
 services: 
   - docker
-  
-# before_script: 
-#   - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
 script:
-#    - docker run -p 8080:8080 eltonmmoreira/wallet 
-  - docker build -t demo-wallet -f Dockerfile .
-  
+  - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+  - ./mvnw jib:dockerBuild
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)  
-  
+  - bash <(curl -s https://codecov.io/bash)
+
 before_deploy:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag demo-wallet $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER
-  - docker tag demo-wallet $DOCKER_USER/demo-wallet:latest
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker tag $DOCKER_USER/demo-wallet $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER
+  - docker tag $DOCKER_USER/demo-wallet $DOCKER_USER/demo-wallet:$TAG
   
 deploy:
   provider: script
   script: docker push $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER && docker push $DOCKER_USER/demo-wallet:latest
   on:
-    branch: master  
+    branch: master
