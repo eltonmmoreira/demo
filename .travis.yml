@@ -26,8 +26,9 @@ after_success:
 
 before_deploy:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag demo-wallet $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER
-  - docker tag demo-wallet $DOCKER_USER/demo-wallet:latest
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker tag $DOCKER_USER/demo-wallet $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER
+  - docker tag $DOCKER_USER/demo-wallet $DOCKER_USER/demo-wallet:$TAG
   
 deploy:
   provider: script
