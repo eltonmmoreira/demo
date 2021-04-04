@@ -8,16 +8,10 @@ cache:
   directories:
   - $HOME/.m2
 
-#install: false
-    
 services: 
   - docker
-  
-# before_script:
-#   - docker build -t eltonmmoreira/wallet -f Dockerfile .
 
 script:
-#    - docker run -p 8080:8080 eltonmmoreira/wallet
   - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install
   - ./mvnw jib:dockerBuild
 
@@ -34,4 +28,4 @@ deploy:
   provider: script
   script: docker push $DOCKER_USER/demo-wallet:$TRAVIS_BUILD_NUMBER && docker push $DOCKER_USER/demo-wallet:latest
   on:
-    branch: coverage
+    branch: master
