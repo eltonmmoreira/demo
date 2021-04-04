@@ -19,7 +19,7 @@ services:
 script:
 #    - docker run -p 8080:8080 eltonmmoreira/wallet
   - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install
-  - ./mvnw deploy jib:dockerBuild
+  - ./mvnw jib:dockerBuild
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
