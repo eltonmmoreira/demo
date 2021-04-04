@@ -8,7 +8,7 @@ cache:
   directories:
   - $HOME/.m2
 
-install: false
+#install: false
     
 services: 
   - docker
