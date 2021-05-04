@@ -17,6 +17,10 @@ import java.math.BigDecimal;
         @UniqueConstraint(
                 name = "UNQ_TICKER",
                 columnNames = {"TICKER"}
+        ),
+        @UniqueConstraint(
+                name = "UNQ_WALLET_ID",
+                columnNames = {"ID_WALLET"}
         )
 })
 public class Stocks {
