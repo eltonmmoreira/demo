@@ -15,12 +15,8 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "STOCKS", uniqueConstraints = {
         @UniqueConstraint(
-                name = "UNQ_TICKER",
-                columnNames = {"TICKER"}
-        ),
-        @UniqueConstraint(
-                name = "UNQ_WALLET_ID",
-                columnNames = {"ID_WALLET"}
+                name = "UNQ_TICKER_ID_WALLET",
+                columnNames = {"TICKER", "ID_WALLET"}
         )
 })
 public class Stocks {
