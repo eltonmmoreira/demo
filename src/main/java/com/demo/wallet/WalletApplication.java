@@ -9,6 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class WalletApplication {
 
 	public static void main(String[] args) {
+		System.out.println("TESTE DOCKER");
 		SpringApplication.run(WalletApplication.class, args);
 	}
 
